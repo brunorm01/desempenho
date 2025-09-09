@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cestas de café da manhã personalizadas e presentes afetivos. Encomende online cestas românticas, saudáveis, gourmet e para família, dia dos pais, dia das mães.">
+    <meta name="keywords" content="cestas café da manhã, presentes afetivos, cestas românticas, café da manhã na cama, cestas gourmet, presentes personalizados, cestas saudáveis">
+    <title>Cestas de Café da Manhã - Mourajê</title>
+    
+    <!-- Preload de fontes críticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- CSS otimizado e minificado -->
+    <style>
+        :root {
+            --primary: #fe7b01;
+            --secondary: #b2935b;
+            --accent: #e49da9;
+            --light: #ffffff;
+            --dark: #333333;
+            --background: #f9f6f0;
+            --card-bg: #bcc79b;
+            --orange: #b38989;
+            --pink: #ffb7b2;
+            --mint: #60e08b;
+            --yellow: #e4c5b7;
+            --purple: #040404;
+            --white: #ffffff;
+            --red: #fff;
+            --header-height: 100px;
+            --header-scrolled-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }   
+
+        body {
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Button whatsapp */
+        .pulse {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(13, 158, 27);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
+            z-index: 1000;
+            cursor: pointer;
+            animation: pulsar 1.2s infinite;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pulse a {
+            color: #ffffff;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        /* Header Styles */
+        header {
+            background: #f78943;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            height: 130px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 250px;
+            margin-right: 10px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color:black;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: "Montserrat Alternates", sans-serif;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color:#fff;
+            outline: none;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a:focus::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #121212;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Botão fechar menu mobile */
+        .mobile-close-btn {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1002;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-close-btn.visible {
+            opacity: 1;
+        }
+
+        /* Hero Section with Carousel */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin-top: var(--header-height);
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /*button dobuble*/
+        .btn {
+            display: inline-block;
+            background: #71574b;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            margin: 5px;
+            border: 2px solid #b2935b;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: #b2935b;
+            color: #121212;
+            animation: none;
+            outline: none;
+        }
+
+        .btn-secondary {
+            background: #71574b;
+            color: #fff;
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            background: #b2935b;
+            color: #121212;
+        }
+
+        /* About Section */
+        .about {
+            padding: 0 0 4em;
+            background-color: #fff6A5;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #8b4513;
+            position: relative;
+            padding: 6em 0 0;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            display: inline-block;
+        }
+        
+        .section-title .image {
+            align-content: center;
+        }
+        
+        .section-title img {
+            width: 160px;
+            height: 20px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 550px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--purple);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-weight: 500;
+            font-size: 1.4em;
+            color: black;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /*Produtos*/
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0 180px;
+        }
+
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: #71574b;
+            color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .category-btn.active, 
+        .category-btn:hover,
+        .category-btn:focus {
+            background: var(--primary);
+            outline: none;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #f2efeb;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img-container {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-img-secondary {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
+
+        .product-card:hover .product-img-secondary {
+            opacity: 1;
+        }
+
+        .zoom-btn i {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 1;
+            transition: all 0.3s ease;
+            color:#121212;
+            font-size: 2em;
+        }
+        .zoom-btn i:hover{
+            transform: scale(1.2);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #71574b;
+            color: var(--light);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #555;
+        }
+        
+        .add-to-cart {
+            background: #71574b;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-to-cart:hover,
+        .add-to-cart:focus {
+            background: var(--secondary);
+            transform: rotate(90deg);
+            outline: none;
+        }
+        .add-to-cart i{
+            color: white;
+        }
+            
+
+        /* Modal de zoom para imagens */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            display: block;
+            margin: 0 auto;
+            max-width: 90%;
+            max-height: 80vh;
+            animation: zoom 0.3s;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.8)}
+            to {transform: scale(1)}
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Ingredients Section */
+        .ingredients-toggle {
+            background: #71574b;
+            color: var(--light);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .ingredients-toggle:hover,
+        .ingredients-toggle:focus {
+            background: var(--primary);
+            outline: none;
+        }
+
+        .ingredients-toggle::after {
+            content: '\25BC';
+            position: absolute;
+            right: 15px;
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .ingredients-toggle.expanded::after {
+            transform: rotate(180deg);
+        }
+
+        .ingredients-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .ingredients-list.expanded {
+            max-height: 500px;
+        }
+
+        .ingredients-list ul {
+            padding: 15px;
+            list-style-type: none;
+        }
+
+        .ingredients-list li {
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .ingredients-list li:last-child {
+            border-bottom: none;
+        }
+
+        .ingredients-list li::before {
+            content: '✓';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 0 0 4em;
+            background: #f2efeb;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 2px auto;
+            padding: 0 20px;
+            justify-items: center;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            padding: 20px 0;
+            display: inline-flex;
+        }
+
+        .testimonial-slide {
+            color: #333333;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 0 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+         
+        .testimonial-slide.active{
+            transform: scale(1.02);
+            box-shadow: 0 8px 15px rgba(3, 3, 3, 0.5);
+        }
+
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--yellow);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-rating {
+            color: #fe7b01;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .client-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .client-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .client-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #71574b;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--yellow);
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 0 0 4em;
+            background-color: #f2efeb;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--purple);
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .contact-item .item1{
+            background: green;
+            color: white;
+        }
+
+        .contact-item .item2{
+            background: radial-gradient(circle at 33% 100%, 
+                          #bf8d8d 4%, 
+                          #F15245 30%, 
+                          #D92E7F 62%, 
+                          #9B36B7 85%, 
+                          #515ECF);
+    
+            color: white;
+        }
+
+        .contact-item a{
+            text-decoration: none;
+            color: #121212;
+        }
+    
+        .contact h4{
+            font-size: 18px;
+        }
+
+        .cartao img{
+            width: 200px;
+            height: auto;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255, 123, 37, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background:#71574b;
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #b2935b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #e3edf7;
+            color: #121212;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 200px;
+            height: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #121212;
+            font-size: 1.1em;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            background: #fe7b01;
+            outline: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;  
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: -4px -4px 8px #ffffff73, 4px 4px 6px rgba(94, 104, 121, 0.288);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            color: #121212;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover,
+        .social-link:focus {
+            box-shadow: -4px -4px 8px #ffffff73, 4px 4px 6px inset rgba(94, 104, 121, 0.288);
+            outline: none;
+        }
+       
+        .midia1 {
+            color: blue;
+        }
+        
+        .midia2 {
+            color: rgb(211, 48, 75);
+        }
+        
+        .midia3 {
+            color: rgb(14, 102, 11);
+        }
+        
+        .midia4 {
+            color: rgb(119, 11, 21);
+        }
+     
+        .copyright {
+            padding-top: 20px;
+            border-top: 3px solid rgb(195, 101, 7);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /*botões gerais efeito*/
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(172, 126, 45, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 123, 37, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 123, 37, 0);
+            }
+        }
+        
+        /*botão whatzaap efeito*/
+        @keyframes pulsar {
+            0% {
+                box-shadow: 0 0 0 0 rgba(10, 181, 16, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 18px rgba(34, 210, 40, 0);
+            }
+           100% {
+                box-shadow: 0 0 0 0 rgba(34, 210, 40, 0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul li {
+                margin-left: 20px;
+            }
+            
+            nav ul li a {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 90px;
+                --header-scrolled-height: 60px;
+            }
+            
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+             .hero-content{
+                background: transparent;
+             }
+
+            .logo {
+                margin-bottom: 0;
+            }
+
+            .logo img {
+                height: 100px;
+                width: 220px;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                text-align: center;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                right: -100%;
+                width: 50%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                transition: all 0.3s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                box-shadow: -5px 0 15px rgba(248, 147, 39, 0.8);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+            nav ul li a{
+                color: #fff;
+                font-weight: 500;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-close-btn {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                text-align: center;
+                max-width: 200px;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-img,
+            .about-text {
+                min-width: 100%;
+            }
+
+            .testimonial-slider {
+                display: inline-block;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info,
+            .contact-form {
+                min-width: 100%;
+            }
+
+            .contact-form {
+                margin-top: 30px;
+            }
+            
+            .pulse {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --header-height: 80px;
+                --header-scrolled-height: 50px;
+            }
+            
+            header {
+                padding: 10px 0;
+                height: 100px;
+            }
+            
+            .hero-container {
+                height: 80vh;
+            }
+            
+            .hero-content {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 200px;
+                margin: 5px 0;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            :root {
+                --header-height: 70px;
+                --header-scrolled-height: 45px;
+            }
+            
+            .logo img {
+                height: 50px;
+                width: 130px;
+            }
+            
+            header.scrolled .logo img {
+                height: 40px;
+                width: 110px;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Carregamento assíncrono de recursos não críticos -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Pré-carregar imagens críticas -->
+    <link rel="preload" as="image" href="cestinha.webp">
+    <link rel="preload" as="image" href="Mourajêlol__1_-removebg-preview.png">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only">Pular para o conteúdo principal</a>
+    
+    <div class="pulse">
+        <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" aria-label="Entrar em contato via WhatsApp" rel="noopener">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+    </div>
+    
+    <!-- Modal para zoom de imagem -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" aria-label="Fechar modal de imagem">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Visualização ampliada da imagem do produto">
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Mourajêlol__1_-removebg-preview.png" alt="Mourajê - Cestas de Café da Manhã" width="250" height="100" loading="eager"/>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Fechar menu">
+                <span aria-hidden="true">×</span>
+            </button>
+            <nav id="nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#products">Cestas</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section with Carousel -->
+        <section class="hero-container" id="home">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="cestinha.webp" alt="Cesta de café da manhã com frutas, pães e bebidas" loading="eager" width="1200" height="800" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="vinhomesa.webp" alt="Cesta romântica com vinho, queijos e uvas" loading="lazy" width="1200" height="800" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="cafec.webp" alt="Mesa de café da manhã completa com diversas opções" loading="lazy" width="1200" height="800" />
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h2>Cestas de Café da Manhã e Presentes Afetivos</h2>
+                <p>
+                    Aqui você encontra cestas que vão te ajudar a presentear com intenção.
+                </p>
+                <a href="#products" class="btn">Ver Cestas</a>
+                <a href="#contact" class="btn btn-secondary">Encomendar</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <div class="section-title section-cestas">
+                <h2>Nossas Cestas</h2>
+                <div class="image">
+                    <img src="11Mourajê__.png" alt="Divisor decorativo" loading="lazy" width="160" height="20" />
+                </div>
+            </div>
+            <div class="products-container">
+                <div class="product-categories">
+                    <button class="category-btn active" data-category="all">Todas</button>
+                    <button class="category-btn" data-category="romantica">Romântica</button>
+                    <button class="category-btn" data-category="gourmet">Gourmet</button>
+                    <button class="category-btn" data-category="saudavel">Saudável</button>
+                    <button class="category-btn" data-category="familia">Família</button>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-category="romantica">
+                        <div class="product-img-container">
+                            <img src="cafe1.webp" alt="Cesta romântica com espumante e morangos" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cafe1-02.webp" alt="Detalhe da cesta romântica com chocolates" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Romântica</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Romântica Premium</h3>
+                            <p>Cesta especial para casais, com espumante, morangos, chocolates finos e muito mais.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 199,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                  <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Espumante Brasileiro</li>
+                                    <li>Morango fresco</li>
+                                    <li>Chocolates finos</li>
+                                    <li>Queijo brie</li>
+                                    <li>Geleia de frutas vermelhas</li>
+                                    <li>Pão de fermentação natural</li>
+                                    <li>Velas aromáticas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-category="gourmet">
+                        <div class="product-img-container">
+                            <img src="cafe2.webp" alt="Cesta gourmet com queijos especiais" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cafe2-02.webp" alt="Detalhe da cesta gourmet com frios" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Gourmet</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Gourmet Completa</h3>
+                            <p>Seleção premium com queijos finos, vinhos, geleias artesanais e pães especiais.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 249,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Vinho tinto selecionado</li>
+                                    <li>Queijos artesanais</li>
+                                    <li>Salame italiano</li>
+                                    <li>Presunto Parma</li>
+                                    <li>Azeitonas especiais</li>
+                                    <li>Pães rústicos</li>
+                                    <li>Castanhas e nozes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-category="saudavel">
+                        <div class="product-img-container">
+                            <img src="cafe3.webp" alt="Cesta saudável com frutas and iogurtes" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cafe3-02.webp" alt="Detalhe da cesta saudável com granola" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Saudável</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Saudável Energética</h3>
+                            <p>Opções nutritivas e deliciosas para começar o dia com energia e vitalidade.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 169,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Frutas da estação selecionadas</li>
+                                    <li>Iogurte natural</li>
+                                    <li>Granola artesanal</li>
+                                    <li>Mel puro</li>
+                                    <li>Sucos naturais</li>
+                                    <li>Pães integrais</li>
+                                    <li>Mix de sementes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-category="familia">
+                        <div class="product-img-container">
+                            <img src="cafe4.webp" alt="Cesta para família com variedade de alimentos" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cafe4-02.webp" alt="Detalhe da cesta para família com doces" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Família</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Família Completa</h3>
+                            <p>Uma seleção completa para agradar a todos os gostos, perfeita para reunir a família.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 299,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Café especial</li>
+                                    <li>Leite e achocolatado</li>
+                                    <li>Pães, bolos e biscoitos</li>
+                                    <li>Frios e queijos</li>
+                                    <li>Frutas variadas</li>
+                                    <li>Sucos e geleias</li>
+                                    <li>Opções para crianças</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card" data-category="romantica">
+                        <div class="product-img-container">
+                            <img src="cafe5.webp" alt="Cesta romântica especial com rosas" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cafe5-02.webp" alt="Detalhe da cesta romântica especial" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Romântica</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Romântica Especial</h3>
+                            <p>Para momentos inesquecíveis a dois, com produtos premium e detalhes especiais.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 279,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                   <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Espumante francês</li>
+                                    <li>Chocolates belgas</li>
+                                    <li>Morango orgânico</li>
+                                    <li>Queijos importados</li>
+                                    <li>Geleia de pétalas de rosas</li>
+                                    <li>Biscoitos amanteigados</li>
+                                    <li>Ramos de rosas vermelhas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="gourmet">
+                        <div class="product-img-container">
+                            <img src="cestinha.webp" alt="Cesta gourmet premium com caviar" class="product-img" loading="lazy" width="400" height="200" />
+                            <img src="cestinha-02.webp" alt="Detalhe da cesta gourmet premium" class="product-img-secondary" loading="lazy" width="400" height="200" />
+                            <button class="zoom-btn" aria-label="Ampliar imagem">
+                                <span aria-hidden="true">🔍</span>
+                            </button>
+                            <span class="product-tag">Gourmet</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Cesta Gourmet Premium</h3>
+                            <p>Produtos selecionados internacionalmente para os amantes da alta gastronomia.</p>
+                            <div class="product-price">
+                                <span class="price">R$ 399,90</span>
+                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                </button>
+                            </div>
+                            <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
+                            <div class="ingredients-list">
+                                <ul>
+                                    <li>Vinho francês premium</li>
+                                    <li>Queijos importados</li>
+                                    <li>Presunto ibérico</li>
+                                    <li>Trufas e patês especiais</li>
+                                    <li>Azeite trufado</li>
+                                    <li>Pães artesanais europeus</li>
+                                    <li>Delicatessen exclusivas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+                <div class="image">
+                    <img src="11Mourajê__.png" alt="Divisor decorativo" loading="lazy" width="160" height="20" />
+                </div>
+            </div>
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="florista.webp" alt="Equipe Mourajê preparando cestas de café da manhã" loading="lazy" width="600" height="550" />
+                </div>
+                <div class="about-text">
+                    <h3>Nossa História</h3>
+                    <p>
+                        A Mourajê nasceu do desejo de transformar momentos simples em experiências memoráveis. 
+                        Percebemos que o café da manhã, tão importante no nosso dia a día, poderia ser muito 
+                        mais que uma refeição: poderia ser uma demonstração de carinho, amor e cuidado.
+                    </p>
+                    <p>
+                        Começamos nossa jornada em 2024, com a missão de criar cestas personalizadas que 
+                        refletissem a personalidade de quem presenteia e de quem recebe. Cada cesta é 
+                        cuidadosamente planejada e montada com produtos de alta qualidade, selecionados 
+                        especialmente para criar uma experiência única.
+                    </p>
+                    <p>
+                        Nossa meta é se tornar referência em cestas de café da manhã e presentes afetivos, e sempre 
+                        mantendo nosso compromisso com a qualidade, o sabor e a entrega de momentos especiais.
+                    </p>
+                    <a href="#contact" class="btn">Fale Conosco</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="section-title">
+                <h2>O Que Dizem Nossos Clientes</h2>
+                <div class="image">
+                    <img src="11Mourajê__.png" alt="Divisor decorativo" loading="lazy" width="160" height="20" />
+                </div>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-slide active">
+                        <div class="client-img">
+                            <img src="depoimentos28.webp" alt="Cliente 1" loading="lazy" width="80" height="80" />
+                        </div>
+                        <div class="client-rating">
+                            <span aria-hidden="true">★★★★★</span>
+                            <span class="sr-only">5 estrelas</span>
+                        </div>
+                        <p class="client-text">
+                            "A cesta que pedi foi perfeita para meu aniversário de casamento.
+                            Tudo fresquinho e delicioso. Atendimento 10!"
+                        </p>
+                        <h4 class="client-name">Ana Carolina</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="client-img">
+                            <img src="eu.webp" alt="Cliente 2" loading="lazy" width="80" height="80" />
+                        </div>
+                        <div class="client-rating">
+                            <span aria-hidden="true">★★★★★</span>
+                            <span class="sr-only">5 estrelas</span>
+                        </div>
+                        <p class="client-text">
+                            "Encomendei a cesta saudável para minha mãe. Ela adorou a variedade. Simplesmente incrível!"
+                        </p>
+                        <h4 class="client-name">Bruno Ribeiro</h4>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="client-img">
+                            <img src="depoimentos.webp" alt="Cliente 3" loading="lazy" width="80" height="80" />
+                        </div>
+                        <div class="client-rating">
+                            <span aria-hidden="true">★★★★½</span>
+                            <span class="sr-only">4.5 estrelas</span>
+                        </div>
+                        <p class="client-text">
+                            "Gostei muito desde o atendimento até a entrega. As crianças
+                            adoraram . Tudo de qualidade!😋"
+                        </p>
+                        <h4 class="client-name">Fernanda Oliveira</h4>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0" aria-label="Slide 1"></div>
+                    <div class="slider-dot" data-slide="1" aria-label="Slide 2"></div>
+                    <div class="slider-dot" data-slide="2" aria-label="Slide 3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <div class="image">
+                    <img src="11Mourajê__.png" alt="Divisor decorativo" loading="lazy" width="160" height="20" />
+                </div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p>
+                        Temos o prazer de atendê-lo! Entre em contato conosco para encomendar sua cesta personalizada, 
+                        tirar dúvidas ou dar sugestões. Estamos aqui para tornar seus momentos especiais ainda mais incríveis.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon item1">
+                                <span aria-hidden="true">📱</span>
+                            </div>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener">(11) 93041-1267</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon item2">
+                                <span aria-hidden="true">📷</span>
+                            </div>
+                            <div>
+                                <h4>Instagram</h4>
+                                <a href="https://www.instagram.com/mourajecestas/" target="_blank" rel="noopener">@mourajecestas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cartao">
+                        <h3>Aceitamos cartões</h3>
+                        <img src="formaspagamento.png" alt="Formas de pagamento: Visa, Mastercard, Elo, Hipercard" loading="lazy" width="200" height="auto" />
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required aria-required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" required aria-required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required aria-required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required aria-required="true"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span id="btnText">Enviar Mensagem</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Mourajêlog3.png" alt="Mourajê - Cestas de Café da Manhã" width="250" height="100" loading="lazy" />
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#products">Cestas</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/" class="social-link" target="_blank" aria-label="Facebook" rel="noopener">
+                    <span aria-hidden="true">📘</span>
+                </a>
+                <a href="https://www.instagram.com/mourajecestas/" class="social-link" target="_blank" aria-label="Instagram" rel="noopener">
+                    <span aria-hidden="true">📸</span>
+                </a>
+                <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." class="social-link" target="_blank" aria-label="WhatsApp" rel="noopener">
+                    <span aria-hidden="true">💬</span>
+                </a>
+                <a href="https://www.youtube.com/" class="social-link" target="_blank" aria-label="youtube" rel="noopener">
+                    <span aria-hidden="true">📺</span>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mourajê - Cestas de Café da Manhã. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts otimizados -->
+    <script>
+        // Função para carregar scripts de forma assíncrona
+        function loadScript(src, callback) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = callback;
+            document.head.appendChild(script);
+        }
+        
+        // Carregar EmailJS apenas quando necessário
+        document.addEventListener('DOMContentLoaded', function() {
+            // Código principal do site aqui
+            
+            // Elementos do menu mobile
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            const nav = document.getElementById('nav');
+            
+            // Alternar menu mobile - Abrir
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                mobileMenuBtn.classList.add('hidden');
+                mobileCloseBtn.classList.add('visible');
+            });
+            
+            // Fechar menu mobile
+            mobileCloseBtn.addEventListener('click', function() {
+                nav.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.classList.remove('hidden');
+                mobileCloseBtn.classList.remove('visible');
+            });
+            
+            // Fechar menu ao clicar em um link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.classList.remove('hidden');
+                    mobileCloseBtn.classList.remove('visible');
+                });
+            });
+            
+            // Header scroll behavior
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Filtro de categorias de produtos
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class de todos os botões
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Adiciona active class ao botão clicado
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Filtra os produtos
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Toggle ingredientes
+            const ingredientToggles = document.querySelectorAll('.ingredients-toggle');
+            
+            ingredientToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const ingredientsList = this.nextElementSibling;
+                    const isExpanded = ingredientsList.classList.contains('expanded');
+                    
+                    if (isExpanded) {
+                        ingredientsList.classList.remove('expanded');
+                        this.setAttribute('aria-expanded', 'false');
+                        this.classList.remove('expanded');
+                    } else {
+                        ingredientsList.classList.add('expanded');
+                        this.setAttribute('aria-expanded', 'true');
+                        this.classList.add('expanded');
+                    }
+                });
+            });
+            
+            // Testimonials slider
+            const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+            const sliderDots = document.querySelectorAll(".slider-dot");
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                testimonialSlides.forEach((slide) => slide.classList.remove("active"));
+                sliderDots.forEach((dot) => dot.classList.remove("active"));
+
+                testimonialSlides[index].classList.add("active");
+                sliderDots[index].classList.add("active");
+                currentSlide = index;
+            }
+
+            sliderDots.forEach((dot) => {
+                dot.addEventListener("click", function () {
+                    const slideIndex = parseInt(this.getAttribute("data-slide"));
+                    showSlide(slideIndex);
+                });
+            });
+
+            // Auto slide change
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonialSlides.length;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Formulário de contato - Carregar EmailJS apenas quando o formulário for usado
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validação básica
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (!name || !email || !phone || !message) {
+                        showFormStatus('Por favor, preencha todos os campos.', 'error');
+                        return;
+                    }
+                    
+                    // Mostrar status de envio
+                    showFormStatus('Enviando sua mensagem...', 'sending');
+                    const submitBtn = document.getElementById('submitBtn');
+                    const btnText = document.getElementById('btnText');
+                    submitBtn.disabled = true;
+                    btnText.innerHTML = '<span class="loading-spinner"></span> Enviando...';
+                    
+                    // Carregar EmailJS apenas quando necessário
+                    loadScript('https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js', function() {
+                        emailjs.init("ou6enLgWHPxLl0Tfl");
+                        
+                        // Enviar email usando EmailJS
+                        emailjs.sendForm('service_8pp45og', 'template_f4si4ce', this)
+                            .then(function() {
+                                showFormStatus('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+                                contactForm.reset();
+                                submitBtn.disabled = false;
+                                btnText.textContent = 'Enviar Mensagem';
+                            }, function(error) {
+                                showFormStatus('Erro ao enviar mensagem. Tente novamente ou entre em contato por WhatsApp.', 'error');
+                                console.error('EmailJS Error:', error);
+                                submitBtn.disabled = false;
+                                btnText.textContent = 'Enviar Mensagem';
+                            });
+                    }.bind(this));
+                });
+            }
+            
+            function showFormStatus(message, type) {
+                const formStatus = document.getElementById('formStatus');
+                if (!formStatus) return;
+                
+                formStatus.textContent = message;
+                formStatus.className = 'form-status ' + type;
+                formStatus.style.display = 'block';
+                
+                // Esconder status após 5 segundos (exceto para sending)
+                if (type !== 'sending') {
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            }
+            
+            // Carousel simples para o hero
+            const carouselTrack = document.querySelector('.carousel-track');
+            if (carouselTrack) {
+                const carouselSlides = document.querySelectorAll('.carousel-slide');
+                let currentCarouselSlide = 0;
+                
+                setInterval(() => {
+                    currentCarouselSlide = (currentCarouselSlide + 1) % carouselSlides.length;
+                    carouselTrack.style.transform = `translateX(-${currentCarouselSlide * 100}%)`;
+                }, 5000);
+            }
+            
+            // Smooth scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Funcionalidade de zoom para as imagens dos produtos
+            const modal = document.getElementById("imageModal");
+            if (modal) {
+                const modalImg = document.getElementById("modalImage");
+                const zoomButtons = document.querySelectorAll(".zoom-btn");
+                const closeModal = document.querySelector(".close-modal");
+                
+                // Adicionar evento de clique para cada botão de zoom
+                zoomButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productImgContainer = this.closest('.product-img-container');
+                        const mainImg = productImgContainer.querySelector('.product-img');
+                        modal.style.display = "block";
+                        modalImg.src = mainImg.src;
+                        modalImg.alt = mainImg.alt;
+                    });
+                });
+                
+                // Fechar o modal
+                closeModal.addEventListener('click', function() {
+                    modal.style.display = "none";
+                });
+                
+                // Fechar o modal ao clicar fora da imagem
+                window.addEventListener('click', function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                });
+                
+                // Fechar o modal com a tecla ESC
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === "Escape" && modal.style.display === "block") {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+            
+            // Lazy loading para imagens com Intersection Observer
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.src;
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
