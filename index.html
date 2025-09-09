@@ -7,12 +7,19 @@
     <meta name="keywords" content="cestas café da manhã, presentes afetivos, cestas românticas, café da manhã na cama, cestas gourmet, presentes personalizados, cestas saudáveis">
     <title>Cestas de Café da Manhã - Mourajê</title>
     
-    <!-- Preload de fontes críticas -->
+    <!-- Preconexão otimizada -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fontes otimizadas (apenas as necessárias) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
-    <!-- CSS otimizado e minificado -->
+    <!-- Font Awesome com carga diferida -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
     <style>
         :root {
             --primary: #fe7b01;
@@ -66,7 +73,7 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background-color: rgb(13, 158, 27);
+            background-color: #0D9E1B;
             border-radius: 50%;
             text-align: center;
             line-height: 60px;
@@ -138,7 +145,7 @@
         }
 
         nav ul li a {
-            color:black;
+            color: #000;
             text-decoration: none;
             font-weight: 500;
             font-family: "Montserrat Alternates", sans-serif;
@@ -149,7 +156,7 @@
 
         nav ul li a:hover,
         nav ul li a:focus {
-            color:#fff;
+            color: #fff;
             outline: none;
         }
 
@@ -242,7 +249,7 @@
             position: absolute;
             top: 40%;
             left: 50%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             transform: translate(-50%, -50%);
             text-align: center;
             color: var(--white);
@@ -256,7 +263,7 @@
         .hero-content h2 {
             font-size: clamp(1.8rem, 5vw, 3.5rem);
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .hero-content p {
@@ -286,6 +293,7 @@
             color: #121212;
             animation: none;
             outline: none;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -465,11 +473,20 @@
             z-index: 5;
             opacity: 1;
             transition: all 0.3s ease;
-            color:#121212;
+            color: #121212;
             font-size: 2em;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .zoom-btn i:hover{
             transform: scale(1.2);
+            background: rgba(255, 255, 255, 1);
         }
 
         .product-tag {
@@ -594,7 +611,7 @@
             background: #71574b;
             color: var(--light);
             border: none;
-            padding: 8px 15px;
+            padding: 12px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -613,11 +630,12 @@
         }
 
         .ingredients-toggle::after {
-            content: '\25BC';
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             position: absolute;
             right: 15px;
             transition: transform 0.3s ease;
-            font-size: 0.8rem;
         }
 
         .ingredients-toggle.expanded::after {
@@ -654,11 +672,12 @@
         }
 
         .ingredients-list li::before {
-            content: '✓';
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             color: var(--primary);
             position: absolute;
             left: 0;
-            font-weight: bold;
         }
 
         /* Testimonials Section */
@@ -1288,14 +1307,6 @@
             }
         }
     </style>
-    
-    <!-- Carregamento assíncrono de recursos não críticos -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    
-    <!-- Pré-carregar imagens críticas -->
-    <link rel="preload" as="image" href="cestinha.webp">
-    <link rel="preload" as="image" href="Mourajêlol__1_-removebg-preview.png">
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
@@ -1320,10 +1331,10 @@
                 <img src="Mourajêlol__1_-removebg-preview.png" alt="Mourajê - Cestas de Café da Manhã" width="250" height="100" loading="eager"/>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu" aria-expanded="false">
-                <span aria-hidden="true">☰</span>
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Fechar menu">
-                <span aria-hidden="true">×</span>
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             <nav id="nav" aria-label="Navegação principal">
                 <ul>
@@ -1386,8 +1397,8 @@
                         <div class="product-img-container">
                             <img src="cafe1.webp" alt="Cesta romântica com espumante e morangos" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cafe1-02.webp" alt="Detalhe da cesta romântica com chocolates" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta romântica">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Romântica</span>
                         </div>
@@ -1396,8 +1407,8 @@
                             <p>Cesta especial para casais, com espumante, morangos, chocolates finos e muito mais.</p>
                             <div class="product-price">
                                 <span class="price">R$ 199,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                  <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta romântica ao carrinho">
+                                  <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
@@ -1420,8 +1431,8 @@
                         <div class="product-img-container">
                             <img src="cafe2.webp" alt="Cesta gourmet com queijos especiais" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cafe2-02.webp" alt="Detalhe da cesta gourmet com frios" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta gourmet">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Gourmet</span>
                         </div>
@@ -1430,8 +1441,8 @@
                             <p>Seleção premium com queijos finos, vinhos, geleias artesanais e pães especiais.</p>
                             <div class="product-price">
                                 <span class="price">R$ 249,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta gourmet ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
@@ -1454,18 +1465,18 @@
                         <div class="product-img-container">
                             <img src="cafe3.webp" alt="Cesta saudável com frutas and iogurtes" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cafe3-02.webp" alt="Detalhe da cesta saudável com granola" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta saudável">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Saudável</span>
                         </div>
                         <div class="product-info">
                             <h3>Cesta Saudável Energética</h3>
-                            <p>Opções nutritivas e deliciosas para começar o dia com energia e vitalidade.</p>
+                            <p>Opções nutritivas e deliciosas para começar o dia com energia and vitalidade.</p>
                             <div class="product-price">
                                 <span class="price">R$ 169,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta saudável ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
@@ -1488,8 +1499,8 @@
                         <div class="product-img-container">
                             <img src="cafe4.webp" alt="Cesta para família com variedade de alimentos" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cafe4-02.webp" alt="Detalhe da cesta para família com doces" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta família">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Família</span>
                         </div>
@@ -1498,19 +1509,19 @@
                             <p>Uma seleção completa para agradar a todos os gostos, perfeita para reunir a família.</p>
                             <div class="product-price">
                                 <span class="price">R$ 299,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta família ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
                             <div class="ingredients-list">
                                 <ul>
                                     <li>Café especial</li>
-                                    <li>Leite e achocolatado</li>
-                                    <li>Pães, bolos e biscoitos</li>
-                                    <li>Frios e queijos</li>
+                                    <li>Leite and achocolatado</li>
+                                    <li>Pães, bolos and biscoitos</li>
+                                    <li>Frios and queijos</li>
                                     <li>Frutas variadas</li>
-                                    <li>Sucos e geleias</li>
+                                    <li>Sucos and geleias</li>
                                     <li>Opções para crianças</li>
                                 </ul>
                             </div>
@@ -1522,18 +1533,18 @@
                         <div class="product-img-container">
                             <img src="cafe5.webp" alt="Cesta romântica especial com rosas" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cafe5-02.webp" alt="Detalhe da cesta romântica especial" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta romântica especial">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Romântica</span>
                         </div>
                         <div class="product-info">
                             <h3>Cesta Romântica Especial</h3>
-                            <p>Para momentos inesquecíveis a dois, com produtos premium e detalhes especiais.</p>
+                            <p>Para momentos inesquecíveis a dois, com produtos premium and detalhes especiais.</p>
                             <div class="product-price">
                                 <span class="price">R$ 279,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                   <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta romântica especial ao carrinho">
+                                   <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
@@ -1556,8 +1567,8 @@
                         <div class="product-img-container">
                             <img src="cestinha.webp" alt="Cesta gourmet premium com caviar" class="product-img" loading="lazy" width="400" height="200" />
                             <img src="cestinha-02.webp" alt="Detalhe da cesta gourmet premium" class="product-img-secondary" loading="lazy" width="400" height="200" />
-                            <button class="zoom-btn" aria-label="Ampliar imagem">
-                                <span aria-hidden="true">🔍</span>
+                            <button class="zoom-btn" aria-label="Ampliar imagem da cesta gourmet premium">
+                                <i class="fas fa-search-plus" aria-hidden="true"></i>
                             </button>
                             <span class="product-tag">Gourmet</span>
                         </div>
@@ -1566,8 +1577,8 @@
                             <p>Produtos selecionados internacionalmente para os amantes da alta gastronomia.</p>
                             <div class="product-price">
                                 <span class="price">R$ 399,90</span>
-                                <button class="add-to-cart" aria-label="Adicionar ao carrinho">
-                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <span aria-hidden="true">🛒</span></a>
+                                <button class="add-to-cart" aria-label="Adicionar cesta gourmet premium ao carrinho">
+                                    <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." target="_blank" rel="noopener"> <i class="fas fa-shopping-cart" aria-hidden="true"></i></a>
                                 </button>
                             </div>
                             <button class="ingredients-toggle" aria-expanded="false">Ver Ingredientes</button>
@@ -1576,7 +1587,7 @@
                                     <li>Vinho francês premium</li>
                                     <li>Queijos importados</li>
                                     <li>Presunto ibérico</li>
-                                    <li>Trufas e patês especiais</li>
+                                    <li>Trufas and patês especiais</li>
                                     <li>Azeite trufado</li>
                                     <li>Pães artesanais europeus</li>
                                     <li>Delicatessen exclusivas</li>
@@ -1605,17 +1616,17 @@
                     <p>
                         A Mourajê nasceu do desejo de transformar momentos simples em experiências memoráveis. 
                         Percebemos que o café da manhã, tão importante no nosso dia a día, poderia ser muito 
-                        mais que uma refeição: poderia ser uma demonstração de carinho, amor e cuidado.
+                        mais que uma refeição: poderia ser uma demonstração de carinho, amor and cuidado.
                     </p>
                     <p>
                         Começamos nossa jornada em 2024, com a missão de criar cestas personalizadas que 
-                        refletissem a personalidade de quem presenteia e de quem recebe. Cada cesta é 
-                        cuidadosamente planejada e montada com produtos de alta qualidade, selecionados 
+                        refletissem a personalidade de quem presenteia and de quem recebe. Cada cesta é 
+                        cuidadosamente planejada and montada com produtos de alta qualidade, selecionados 
                         especialmente para criar uma experiência única.
                     </p>
                     <p>
-                        Nossa meta é se tornar referência em cestas de café da manhã e presentes afetivos, e sempre 
-                        mantendo nosso compromisso com a qualidade, o sabor e a entrega de momentos especiais.
+                        Nossa meta é se tornar referência em cestas de café da manhã and presentes afetivos, and sempre 
+                        mantendo nosso compromisso com a qualidade, o sabor and a entrega de momentos especiais.
                     </p>
                     <a href="#contact" class="btn">Fale Conosco</a>
                 </div>
@@ -1634,25 +1645,33 @@
                 <div class="testimonial-slider">
                     <div class="testimonial-slide active">
                         <div class="client-img">
-                            <img src="depoimentos28.webp" alt="Cliente 1" loading="lazy" width="80" height="80" />
+                            <img src="depoimentos28.webp" alt="Cliente Ana Carolina" loading="lazy" width="80" height="80" />
                         </div>
                         <div class="client-rating">
-                            <span aria-hidden="true">★★★★★</span>
-                            <span class="sr-only">5 estrelas</span>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span class="sr-only">Avaliação: 5 estrelas</span>
                         </div>
                         <p class="client-text">
                             "A cesta que pedi foi perfeita para meu aniversário de casamento.
-                            Tudo fresquinho e delicioso. Atendimento 10!"
+                            Tudo fresquinho and delicioso. Atendimento 10!"
                         </p>
                         <h4 class="client-name">Ana Carolina</h4>
                     </div>
                     <div class="testimonial-slide">
                         <div class="client-img">
-                            <img src="eu.webp" alt="Cliente 2" loading="lazy" width="80" height="80" />
+                            <img src="eu.webp" alt="Cliente Bruno Ribeiro" loading="lazy" width="80" height="80" />
                         </div>
                         <div class="client-rating">
-                            <span aria-hidden="true">★★★★★</span>
-                            <span class="sr-only">5 estrelas</span>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span class="sr-only">Avaliação: 5 estrelas</span>
                         </div>
                         <p class="client-text">
                             "Encomendei a cesta saudável para minha mãe. Ela adorou a variedade. Simplesmente incrível!"
@@ -1661,11 +1680,15 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="client-img">
-                            <img src="depoimentos.webp" alt="Cliente 3" loading="lazy" width="80" height="80" />
+                            <img src="depoimentos.webp" alt="Cliente Fernanda Oliveira" loading="lazy" width="80" height="80" />
                         </div>
                         <div class="client-rating">
-                            <span aria-hidden="true">★★★★½</span>
-                            <span class="sr-only">4.5 estrelas</span>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
+                            <span class="sr-only">Avaliação: 4.5 estrelas</span>
                         </div>
                         <p class="client-text">
                             "Gostei muito desde o atendimento até a entrega. As crianças
@@ -1700,7 +1723,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon item1">
-                                <span aria-hidden="true">📱</span>
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4>WhatsApp</h4>
@@ -1709,7 +1732,7 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon item2">
-                                <span aria-hidden="true">📷</span>
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4>Instagram</h4>
@@ -1765,16 +1788,16 @@
             </div>
             <div class="social-links">
                 <a href="https://www.facebook.com/" class="social-link" target="_blank" aria-label="Facebook" rel="noopener">
-                    <span aria-hidden="true">📘</span>
+                    <i class="fab fa-facebook-f midia1" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.instagram.com/mourajecestas/" class="social-link" target="_blank" aria-label="Instagram" rel="noopener">
-                    <span aria-hidden="true">📸</span>
+                    <i class="fab fa-instagram midia2" aria-hidden="true"></i>
                 </a>
                 <a href="https://wa.me/5511930411267?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20de%20cesta%20de%20café%20da%20manhã." class="social-link" target="_blank" aria-label="WhatsApp" rel="noopener">
-                    <span aria-hidden="true">💬</span>
+                    <i class="fab fa-whatsapp midia3" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.youtube.com/" class="social-link" target="_blank" aria-label="youtube" rel="noopener">
-                    <span aria-hidden="true">📺</span>
+                    <i class="fab fa-youtube midia4" aria-hidden="true"></i>
                 </a>
             </div>
             <div class="copyright">
@@ -1783,7 +1806,7 @@
         </div>
     </footer>
     
-    <!-- Scripts otimizados -->
+    <!-- Scripts com carga otimizada -->
     <script>
         // Função para carregar scripts de forma assíncrona
         function loadScript(src, callback) {
@@ -1794,30 +1817,32 @@
             document.head.appendChild(script);
         }
         
-        // Carregar EmailJS apenas quando necessário
+        // Aguarda o carregamento completo do DOM
         document.addEventListener('DOMContentLoaded', function() {
-            // Código principal do site aqui
-            
             // Elementos do menu mobile
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileCloseBtn = document.getElementById('mobileCloseBtn');
             const nav = document.getElementById('nav');
             
             // Alternar menu mobile - Abrir
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.classList.add('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                mobileMenuBtn.classList.add('hidden');
-                mobileCloseBtn.classList.add('visible');
-            });
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.classList.add('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                    mobileMenuBtn.classList.add('hidden');
+                    mobileCloseBtn.classList.add('visible');
+                });
+            }
             
             // Fechar menu mobile
-            mobileCloseBtn.addEventListener('click', function() {
-                nav.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                mobileMenuBtn.classList.remove('hidden');
-                mobileCloseBtn.classList.remove('visible');
-            });
+            if (mobileCloseBtn) {
+                mobileCloseBtn.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.classList.remove('hidden');
+                    mobileCloseBtn.classList.remove('visible');
+                });
+            }
             
             // Fechar menu ao clicar em um link
             const navLinks = document.querySelectorAll('nav a');
@@ -1919,7 +1944,7 @@
                 showSlide(currentSlide);
             }, 5000);
             
-            // Formulário de contato - Carregar EmailJS apenas quando o formulário for usado
+            // Formulário de contato - Carregar EmailJS apenas quando necessário
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
@@ -1945,6 +1970,7 @@
                     
                     // Carregar EmailJS apenas quando necessário
                     loadScript('https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js', function() {
+                        // Inicialização do EmailJS
                         emailjs.init("ou6enLgWHPxLl0Tfl");
                         
                         // Enviar email usando EmailJS
@@ -2051,23 +2077,32 @@
                 });
             }
             
-            // Lazy loading para imagens com Intersection Observer
-            if ('IntersectionObserver' in window) {
+            // Lazy loading para imagens com Intersection Observer (fallback)
+            if ('loading' in HTMLImageElement.prototype) {
+                // Navegador suporta lazy loading nativo
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    // Já está funcionando com loading="lazy"
+                });
+            } else {
+                // Fallback para lazy loading via Intersection Observer
                 const lazyImages = document.querySelectorAll('img[loading="lazy"]');
                 
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.src;
-                            imageObserver.unobserve(img);
-                        }
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                img.src = img.src;
+                                imageObserver.unobserve(img);
+                            }
+                        });
                     });
-                });
-                
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
+                    
+                    lazyImages.forEach(img => {
+                        imageObserver.observe(img);
+                    });
+                }
             }
         });
     </script>
